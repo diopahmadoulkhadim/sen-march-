@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sen Marché — plateforme vitrine des producteurs locaux sénégalais.">
+<title>Commander | Sen Marché</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container py-2">
+<a class="navbar-brand d-flex align-items-center" href="index.html"><span class="brand-mark"><i class="bi bi-basket2-fill"></i></span>Sen Marché</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Menu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="mainNav">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link " href="index.html">Accueil</a></li>
+<li class="nav-item"><a class="nav-link " href="produits.html">Produits</a></li>
+<li class="nav-item"><a class="nav-link " href="producteurs.html">Producteurs</a></li>
+<li class="nav-item"><a class="nav-link active" href="commander.html">Commander</a></li>
+<li class="nav-item"><a class="nav-link " href="faq.html">FAQ</a></li>
+<li class="nav-item"><a class="nav-link " href="contact.html">Contact</a></li>
+</ul>
+<a href="commander.html" class="btn btn-brand ms-lg-3 position-relative"><i class="bi bi-bag-check me-1"></i> Panier <span id="cartCount" class="badge rounded-pill bg-warning text-dark cart-badge" style="display:none">0</span></a>
+</div></div></nav>
+
+<section class="page-hero"><div class="container"><span class="eyebrow">Commande</span><h1 class="display-5 mt-2">Passez votre commande</h1><p class="lead">Remplissez le formulaire ci-dessous. Dans cette version sans backend, l'envoi est simulé côté navigateur.</p></div></section>
+<section class="section"><div class="container"><div class="row g-5">
+<div class="col-lg-8"><div class="contact-card p-4 p-lg-5">
+<div id="orderSuccess" class="alert alert-success d-none"><i class="bi bi-check-circle me-2"></i><strong>Commande envoyée avec succès !</strong> Votre demande est enregistrée dans cette démonstration.</div>
+<form id="orderForm" class="needs-validation" novalidate><div class="row g-4">
+<div class="col-md-6"><label class="form-label">Nom complet *</label><input required class="form-control" type="text" placeholder="Votre nom"></div>
+<div class="col-md-6"><label class="form-label">Téléphone *</label><input required class="form-control" type="tel" placeholder="+221 77 000 00 00"></div>
+<div class="col-md-6"><label class="form-label">E-mail</label><input class="form-control" type="email" placeholder="vous@email.com"></div>
+<div class="col-md-6"><label class="form-label">Région *</label><select required class="form-select"><option value="">Choisir...</option><option>Dakar</option><option>Thiès</option><option>Saint-Louis</option><option>Ziguinchor / Casamance</option><option>Autre</option></select></div>
+<div class="col-md-8"><label class="form-label">Produit souhaité *</label><select required id="productSelect" class="form-select"><option value="">Choisir un produit...</option><option>Mangue locale</option><option>Tomates</option><option>Oignons</option><option>Carottes</option><option>Salade</option><option>Orange</option><option>Pastèque</option><option>Banane</option><option>Poisson frais</option><option>Poulet local</option><option>Viande de bœuf</option><option>Panier traditionnel</option><option>Sac artisanal</option><option>Décoration traditionnelle</option></select></div>
+<div class="col-md-4"><label class="form-label">Quantité *</label><input required min="1" value="1" class="form-control" type="number"></div>
+<div class="col-md-6"><label class="form-label">Mode de paiement *</label><select required class="form-select"><option value="">Choisir...</option><option>Wave</option><option>Orange Money</option><option>Paiement à la livraison</option></select></div>
+<div class="col-12"><label class="form-label">Adresse de livraison *</label><textarea required class="form-control" rows="3" placeholder="Quartier, ville, indications..."></textarea></div>
+<div class="col-12"><label class="form-label">Message</label><textarea class="form-control" rows="3" placeholder="Une précision pour le producteur ?"></textarea></div>
+<div class="col-12"><button class="btn btn-brand btn-lg" type="submit"><i class="bi bi-send me-2"></i>Envoyer la commande</button></div>
+</div></form></div></div>
+<div class="col-lg-4"><div class="info-card p-4"><h3 class="h5">Comment ça marche ?</h3><div class="d-flex gap-3 mt-4"><div class="icon-box flex-shrink-0">1</div><div><strong>Choisissez</strong><p class="small text-secondary">Sélectionnez votre produit.</p></div></div><div class="d-flex gap-3 mt-3"><div class="icon-box flex-shrink-0">2</div><div><strong>Renseignez</strong><p class="small text-secondary">Indiquez vos coordonnées et quantité.</p></div></div><div class="d-flex gap-3 mt-3"><div class="icon-box flex-shrink-0">3</div><div><strong>Envoyez</strong><p class="small text-secondary">Votre demande est confirmée à l'écran.</p></div></div><hr><h4 class="h6">Paiements présentés</h4><p class="small text-secondary mb-0">Wave · Orange Money · Paiement à la livraison</p><div class="alert alert-warning small mt-3 mb-0">Aucun paiement réel n'est effectué sans intégration d'une API.</div></div></div>
+</div></div></section>
+<footer class="footer">
+<div class="container">
+<div class="row g-4">
+<div class="col-lg-4"><a class="navbar-brand d-inline-flex align-items-center mb-3" href="index.html"><span class="brand-mark"><i class="bi bi-basket2-fill"></i></span>Sen Marché</a><p>Une vitrine digitale pour valoriser les producteurs, artisans et produits locaux du Sénégal.</p>
+<div><a class="social" href="https://www.facebook.com/ahmadoul.khadim.diop" aria-label="Facebook" target="_blank"><i class="bi bi-facebook"></i></a><a class="social" href="https://www.instagram.com/voixdesbrumes" aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a><a class="social" href="https://wa.me/221778682848" aria-label="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a></div></div>
+<div class="col-6 col-lg-2"><h5>Navigation</h5><ul class="list-unstyled"><li><a href="index.html">Accueil</a></li><li><a href="produits.html">Produits</a></li><li><a href="producteurs.html">Producteurs</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+<div class="col-6 col-lg-3"><h5>Contact</h5><p class="mb-1"><i class="bi bi-telephone me-2"></i><a href="tel:+221778682848" style="color: inherit; text-decoration: none;">77 868 28 48</a> / <a href="tel:+221775940137" style="color: inherit; text-decoration: none;">77 594 01 37</a></p><p class="mb-1"><i class="bi bi-envelope me-2"></i><a href="mailto:diopahmadoulkhadim221@gmail.com" style="color: inherit; text-decoration: none;">diopahmadoulkhadim221@gmail.com</a></p><p><i class="bi bi-geo-alt me-2"></i>Dakar, Sénégal</p></div>
+<div class="col-lg-3"><h5>Paiement</h5><p>Wave · Orange Money · Paiement à la livraison</p><span class="badge-soft d-inline-block">Commerce local sénégalais</span></div>
+</div><hr class="border-secondary my-4"><div class="text-center small">© <span data-year>2026</span> Sen Marché — Tous droits réservés.</div>
+</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="js/script.js"></script>
+</body></html>

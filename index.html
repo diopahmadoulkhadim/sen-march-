@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <!-- ===== META & SEO ===== -->
+  <!-- UTF-8: Support caractères spéciaux français -->
+  <meta charset="utf-8">
+  <!-- Viewport: Responsive design mobile-first -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Meta description: Affichée dans Google Search -->
+  <meta name="description" content="Sen Marché — plateforme vitrine des producteurs locaux sénégalais.">
+  <!-- Titre page: Affiché onglet + résultats recherche -->
+  <title>Accueil | Sen Marché</title>
+
+  <!-- ===== DÉPENDANCES EXTERNES ===== -->
+  <!-- Bootstrap 5.3.3: Framework CSS + composants (grille, navbar, formulaires) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons: Icônes (panier, menu, etc.) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Stylesheets custom: Variables, composants, responsive -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== NAVIGATION PRINCIPALE (FIXED) ===== -->
+<!-- Navbar fixed-top: Reste visible lors du scroll
+     navbar-expand-lg: Menu hamburger sur mobile, horizontal sur desktop
+     ID mainNav: Utilisé pour toggle collapse mobile -->
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container py-2">
+  <!-- Logo marque -->
+  <a class="navbar-brand d-flex align-items-center" href="index.html">
+    <span class="brand-mark"><i class="bi bi-basket2-fill"></i></span>Sen Marché
+  </a>
+  <!-- Bouton toggle (hamburger) mobile -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Menu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Menu navigation -->
+  <div class="collapse navbar-collapse" id="mainNav">
+    <ul class="navbar-nav ms-auto align-items-lg-center">
+      <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="produits.html">Produits</a></li>
+      <li class="nav-item"><a class="nav-link" href="producteurs.html">Producteurs</a></li>
+      <li class="nav-item"><a class="nav-link" href="commander.html">Commander</a></li>
+      <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+    <!-- Bouton CTA panier (se met à jour via JS) -->
+    <!-- id cartCount: Badge nombre produits, masqué si vide -->
+    <a href="commander.html" class="btn btn-brand ms-lg-3 position-relative">
+      <i class="bi bi-bag-check me-1"></i> Panier 
+      <span id="cartCount" class="badge rounded-pill bg-warning text-dark cart-badge" style="display:none">0</span>
+    </a>
+  </div>
+</div>
+</nav>
+
+<section class="hero">
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+<div class="carousel-indicators"><button data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button><button data-bs-target="#heroCarousel" data-bs-slide-to="1"></button><button data-bs-target="#heroCarousel" data-bs-slide-to="2"></button></div>
+<div class="carousel-inner">
+<div class="carousel-item active"><img src="images/legumes.jpg" alt="Produits frais locaux"><div class="hero-caption"><div class="container"><div class="eyebrow mb-3"><i class="bi bi-leaf"></i> Du producteur à votre table</div><h1>Achetez local,<br>mangez mieux.</h1><p class="my-4">Découvrez des produits sénégalais directement auprès de nos producteurs locaux, sans intermédiaire.</p><a class="btn btn-brand me-2" href="produits.html">Découvrir les produits</a><a class="btn btn-outline-light" href="producteurs.html">Nos producteurs</a></div></div></div>
+<div class="carousel-item"><img src="images/fruits.jpg" alt="Fruits et légumes de saison"><div class="hero-caption"><div class="container"><div class="eyebrow mb-3">Produits de saison</div><h1>La fraîcheur<br>près de chez vous.</h1><p class="my-4">Légumes, fruits, poisson et artisanat : choisissez le meilleur du savoir-faire local.</p><a class="btn btn-brand" href="produits.html">Voir le catalogue</a></div></div></div>
+<div class="carousel-item"><img src="images/artisanaux.jpg" alt="Cuisine et produits locaux"><div class="hero-caption"><div class="container"><div class="eyebrow mb-3">Fiers du Sénégal</div><h1>Valorisons<br>ce qui est local.</h1><p class="my-4">Sen Marché crée une relation directe entre producteurs et consommateurs.</p><a class="btn btn-brand" href="commander.html">Commander</a></div></div></div>
+</div><button class="carousel-control-prev" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+</div></section>
+
+<section class="section"><div class="container"><div class="row align-items-end mb-5"><div class="col-md-8"><span class="eyebrow">Explorer</span><h2 class="section-title">Nos catégories</h2><p class="section-lead">Tout ce dont vous avez besoin, proposé par des acteurs locaux.</p></div></div>
+<div class="row g-4">
+<div class="col-md-6 col-lg-3"><div class="category-card"><img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?auto=format&fit=crop&w=900&q=85" alt="Légumes" class="w-100"><div class="p-4"><h3 class="h5">Légumes</h3><p class="text-secondary small">Tomate, oignon, carotte, salade...</p><a href="produits.html#legumes" class="fw-bold text-success">Voir les produits <i class="bi bi-arrow-right"></i></a></div></div></div>
+<div class="col-md-6 col-lg-3"><div class="category-card"><img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=85" alt="Fruits" class="w-100"><div class="p-4"><h3 class="h5">Fruits</h3><p class="text-secondary small">Mangue, orange, pastèque, banane...</p><a href="produits.html#fruits" class="fw-bold text-success">Voir les produits <i class="bi bi-arrow-right"></i></a></div></div></div>
+<div class="col-md-6 col-lg-3"><div class="category-card"><img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?auto=format&fit=crop&w=900&q=85" alt="Poisson et viande" class="w-100"><div class="p-4"><h3 class="h5">Poisson & Viande</h3><p class="text-secondary small">Poisson frais, poulet, viande...</p><a href="produits.html#poisson" class="fw-bold text-success">Voir les produits <i class="bi bi-arrow-right"></i></a></div></div></div>
+<div class="col-md-6 col-lg-3"><div class="category-card"><img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85" alt="Artisanat" class="w-100"><div class="p-4"><h3 class="h5">Artisanat</h3><p class="text-secondary small">Paniers, sacs et objets artisanaux...</p><a href="produits.html#artisanat" class="fw-bold text-success">Voir les produits <i class="bi bi-arrow-right"></i></a></div></div></div>
+</div></div></section>
+
+<section class="section pt-0"><div class="container"><div class="row align-items-end mb-5"><div class="col-md-8"><span class="eyebrow">En ce moment</span><h2 class="section-title">Produits de saison</h2><p class="section-lead">Une sélection de produits à découvrir aujourd'hui.</p></div><div class="col-md-4 text-md-end"><a href="produits.html" class="btn btn-outline-brand">Tout le catalogue</a></div></div>
+<div class="row g-4">
+<div class="col-md-6 col-lg-4"><div class="product-card"><img src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=700&q=85" alt="Mangue locale" class="w-100"><div class="card-body"><span class="badge-soft">Fruits</span><h3 class="h5 mt-3">Mangue locale</h3><div class="d-flex justify-content-between align-items-center"><span class="price">1 500 FCFA</span><a href="commander.html?produit=Mangue locale" class="btn btn-brand btn-sm">Commander</a></div></div></div></div><div class="col-md-6 col-lg-4"><div class="product-card"><img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=700&q=85" alt="Tomates fraîches" class="w-100"><div class="card-body"><span class="badge-soft">Légumes</span><h3 class="h5 mt-3">Tomates fraîches</h3><div class="d-flex justify-content-between align-items-center"><span class="price">1 000 FCFA</span><a href="commander.html?produit=Tomates fraîches" class="btn btn-brand btn-sm">Commander</a></div></div></div></div><div class="col-md-6 col-lg-4"><div class="product-card"><img src="https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&w=700&q=85" alt="Oignons locaux" class="w-100"><div class="card-body"><span class="badge-soft">Légumes</span><h3 class="h5 mt-3">Oignons locaux</h3><div class="d-flex justify-content-between align-items-center"><span class="price">1 200 FCFA</span><a href="commander.html?produit=Oignons locaux" class="btn btn-brand btn-sm">Commander</a></div></div></div></div><div class="col-md-6 col-lg-4"><div class="product-card"><img src="https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&w=700&q=85" alt="Poisson frais" class="w-100"><div class="card-body"><span class="badge-soft">Poisson</span><h3 class="h5 mt-3">Poisson frais</h3><div class="d-flex justify-content-between align-items-center"><span class="price">4 500 FCFA</span><a href="commander.html?produit=Poisson frais" class="btn btn-brand btn-sm">Commander</a></div></div></div></div><div class="col-md-6 col-lg-4"><div class="product-card"><img src="https://images.unsplash.com/photo-1595521624992-48a59aef95a6?auto=format&fit=crop&w=700&q=85" alt="Panier artisanal" class="w-100"><div class="card-body"><span class="badge-soft">Artisanat</span><h3 class="h5 mt-3">Panier artisanal</h3><div class="d-flex justify-content-between align-items-center"><span class="price">8 000 FCFA</span><a href="commander.html?produit=Panier artisanal" class="btn btn-brand btn-sm">Commander</a></div></div></div></div><div class="col-md-6 col-lg-4"><div class="product-card"><img src="https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?auto=format&fit=crop&w=700&q=85" alt="Pastèque" class="w-100"><div class="card-body"><span class="badge-soft">Fruits</span><h3 class="h5 mt-3">Pastèque</h3><div class="d-flex justify-content-between align-items-center"><span class="price">2 000 FCFA</span><a href="commander.html?produit=Pastèque" class="btn btn-brand btn-sm">Commander</a></div></div></div></div>
+</div></div></section>
+
+<section class="stats py-5"><div class="container"><div class="row text-center g-4"><div class="col-6 col-lg-3"><div class="stat-number">100%</div><div>Produits locaux</div></div><div class="col-6 col-lg-3"><div class="stat-number">4</div><div>Catégories</div></div><div class="col-6 col-lg-3"><div class="stat-number">4</div><div>Producteurs partenaires</div></div><div class="col-6 col-lg-3"><div class="stat-number">24/7</div><div>Catalogue accessible</div></div></div></div></section>
+
+<section class="section"><div class="container"><div class="cta"><div class="row align-items-center g-4"><div class="col-lg-8"><span class="eyebrow text-warning">Acheter local</span><h2 class="display-6 fw-bold mt-2">Soutenez celles et ceux qui font vivre nos terroirs.</h2><p class="mb-0 opacity-75">Choisissez un produit, indiquez la quantité et envoyez votre demande. La commande est simulée sans base de données.</p></div><div class="col-lg-4 text-lg-end"><a href="commander.html" class="btn btn-light btn-lg fw-bold">Passer une commande <i class="bi bi-arrow-right"></i></a></div></div></div></div></section>
+<footer class="footer">
+<div class="container">
+<div class="row g-4">
+<div class="col-lg-4"><a class="navbar-brand d-inline-flex align-items-center mb-3" href="index.html"><span class="brand-mark"><i class="bi bi-basket2-fill"></i></span>Sen Marché</a><p>Une vitrine digitale pour valoriser les producteurs, artisans et produits locaux du Sénégal.</p>
+<div><a class="social" href="https://www.facebook.com/ahmadoul.khadim.diop" aria-label="Facebook" target="_blank"><i class="bi bi-facebook"></i></a><a class="social" href="https://www.instagram.com/voixdesbrumes" aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a><a class="social" href="https://wa.me/221778682848" aria-label="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a></div></div>
+<div class="col-6 col-lg-2"><h5>Navigation</h5><ul class="list-unstyled"><li><a href="index.html">Accueil</a></li><li><a href="produits.html">Produits</a></li><li><a href="producteurs.html">Producteurs</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+<div class="col-6 col-lg-3"><h5>Contact</h5><p class="mb-1"><i class="bi bi-telephone me-2"></i><a href="tel:+221778682848" style="color: inherit; text-decoration: none;">77 868 28 48</a> / <a href="tel:+221775940137" style="color: inherit; text-decoration: none;">77 594 01 37</a></p><p class="mb-1"><i class="bi bi-envelope me-2"></i><a href="mailto:diopahmadoulkhadim221@gmail.com" style="color: inherit; text-decoration: none;">diopahmadoulkhadim221@gmail.com</a></p><p><i class="bi bi-geo-alt me-2"></i>Dakar, Sénégal</p></div>
+<div class="col-lg-3"><h5>Paiement</h5><p>Wave · Orange Money · Paiement à la livraison</p><span class="badge-soft d-inline-block">Commerce local sénégalais</span></div>
+</div><hr class="border-secondary my-4"><div class="text-center small">© <span data-year>2026</span> Sen Marché — Tous droits réservés.</div>
+</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="js/script.js"></script>
+</body></html>

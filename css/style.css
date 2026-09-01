@@ -1,0 +1,417 @@
+
+/**
+ * =====================================================
+ * SEN MARCHÉ - STYLESHEET
+ * =====================================================
+ * Système de design cohérent pour une plateforme
+ * de vente directe de produits locaux sénégalais.
+ *
+ * Architecture:
+ * - Variables CSS (couleurs, shadows, typographie)
+ * - Styles globaux et resets
+ * - Composants (navbar, hero, cards, etc.)
+ * - Utilitaires et responsive
+ *
+ * Auteur: Developer Senior
+ * Dernière mise à jour: 2026
+ * =====================================================
+ */
+
+/* ===== IMPORTS & TYPOGRAPHIE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+/**
+ * Variables CSS - Design System
+ * Permet une maintenance facile et une cohérence visuelle globale
+ * 
+ * Couleurs:
+ * - --green: Couleur primaire (boutons, texte actif)
+ * - --green-dark: Variante sombre (hover states)
+ * - --green-soft: Variante claire (backgrounds, badges)
+ * - --gold: Accent secondaire (highlights)
+ * - --ink: Couleur de texte principal
+ * - --muted: Texte secondaire/descriptif
+ * - --bg: Fond de page
+ * 
+ * Autres:
+ * - --shadow: Ombre pour profondeur (cartes, etc.)
+ * - --radius: Rayon de bordure global (20px)
+ */
+:root{
+ --green:#16834a;
+ --green-dark:#0b5d34;
+ --green-soft:#eaf7ef;
+ --gold:#f5bd32;
+ --ink:#17231c;
+ --muted:#6d7a72;
+ --bg:#f8faf8;
+ --white:#fff;
+ --shadow:0 18px 45px rgba(15,35,24,.09);
+ --radius:20px;
+}
+
+/* ===== RESETS & DEFAULTS GLOBAUX ===== */
+/** 
+ * Reset universel: border-box pour tous les éléments
+ * Évite les bugs de calcul de width/padding
+ */
+*{box-sizing:border-box}
+
+/** Scroll smooth pour une meilleure UX */
+html{scroll-behavior:smooth}
+
+/**
+ * Styles de base du body:
+ * - Font Poppins (sans-serif) pour meilleure lisibilité
+ * - Couleur de texte et fond cohérents
+ * - Line-height: 1.7 pour lisibilité optimale (accessibilité)
+ */
+body{font-family:Poppins,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+
+/**
+ * Titres: Utiliser Montserrat (font géométrique + forte)
+ * Weight: 800 (bold) pour hiérarchie visuelle claire
+ */
+h1,h2,h3,h4,.navbar-brand{font-family:Montserrat,sans-serif;font-weight:800}
+
+/** Removelink underline globalement (stylisé au besoin par section) */
+a{text-decoration:none}
+
+/* ===== NAVBAR & NAVIGATION ===== */
+/**
+ * Navbar fixed avec glassmorphism effect
+ * - backdrop-filter: blur crée un effet de verre (mode moderne)
+ * - rgba blanc à 96% opacité: laisse voir le contenu en arrière-plan
+ * - Ombre subtile pour séparation douce
+ * 
+ * Note: Compatibilité iOS Safari limité sur backdrop-filter
+ */
+.navbar{background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+
+/** Logo/Marque dans la navbar */
+.navbar-brand{color:var(--green)!important;font-size:1.35rem}
+
+/**
+ * Icône marque (panier)
+ * - Carré avec coins arrondis
+ * - Flex: centrage parfait de l'icône
+ * - Couleur: vert principal sur fond blanc
+ */
+.brand-mark{width:40px;height:40px;border-radius:13px;background:var(--green);color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-right:8px}
+
+/**
+ * Liens de navigation
+ * - Weight 600: lisible sans être trop lourd
+ * - Margin: écartement entre les liens
+ * - Couleur dark: adaptation pour navbar clair
+ */
+.nav-link{font-weight:600;color:#344239!important;margin:0 4px}
+
+/**
+ * États hover et active pour les liens nav
+ * - Couleur vert: feedback utilisateur clair
+ */
+.nav-link:hover,.nav-link.active{color:var(--green)!important}
+
+/* ===== BOUTONS ===== */
+/**
+ * Bouton primaire (CTA principal)
+ * - Vert plein avec padding généreux
+ * - Hover: couleur plus foncée + translateY pour "lift" effect
+ * - Transform translateY(-1px): micro-animation pour tactile feedback
+ * 
+ * Convention: Utilisé pour actions primaires (Ajouter, Commander, etc.)
+ */
+.btn-brand{background:var(--green);color:#fff;border:0;padding:.75rem 1.2rem;border-radius:12px;font-weight:700}
+.btn-brand:hover{background:var(--green-dark);color:#fff;transform:translateY(-1px)}
+
+/**
+ * Bouton secondaire (variant contour)
+ * - Bordure + texte en vert, pas de fill
+ * - Hover: remplit le bouton
+ * - Convention: Filtres, actions secondaires
+ */
+.btn-outline-brand{border:2px solid var(--green);color:var(--green);padding:.7rem 1.15rem;border-radius:12px;font-weight:700}
+.btn-outline-brand:hover{background:var(--green);color:#fff}
+
+/* ===== HERO SECTION & CAROUSEL ===== */
+/**
+ * Hero container
+ * - Width: 100vw (100% de la fenêtre, ignore parent padding)
+ * - Min-height 680px: optimal pour visibilité CTA
+ * - Flex: centrage des enfants
+ * - Overflow hidden: évite débordement images
+ * - Margin/padding: négatives pour compenser parents
+ * 
+ * Note: Images Unsplash chargées via URLs externes
+ *       Penser à les télécharger localement pour offline
+ */
+.hero{
+  width:100vw;
+  margin-left:calc(-50vw + 50%);
+  min-height:680px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden
+}
+
+/** Carousel full-width */
+.hero .carousel{width:100%}
+
+/** Hauteur fixe du carousel item */
+.hero .carousel-item{height:680px;width:100%}
+
+/**
+ * Images du hero avec darken filter
+ * - object-fit: cover: remplisse sans déformation
+ * - brightness(.57): assombrit l'image pour lisibilité du texte blanc
+ * 
+ * Amélioration possible: utiliser une overlay div au lieu de filter
+ *                        pour meilleure performance
+ */
+.hero .carousel-item img{height:100%;width:100%;object-fit:cover;filter:brightness(.57)}
+
+/**
+ * Texte du hero (positionné absolu sur l'image)
+ * - inset:0: remplit tout le conteneur
+ * - z-index:2: au-dessus des images
+ * - Flex: centre le contenu texte
+ */
+.hero-caption{position:absolute;inset:0;display:flex;align-items:center;z-index:2;color:#fff}
+
+/**
+ * Typographie du hero
+ * - clamp() pour font-size responsive sans media queries
+ * - clamp(min, préféré, max) = clamp(2.4rem, 5vw, 5rem)
+ * - Adapte automatiquement entre mobile et desktop
+ * - Line-height réduit (1.08): proximité du texte pour impact
+ */
+.hero h1{font-size:clamp(2.4rem,5vw,5rem);line-height:1.08;max-width:760px}
+
+/** Sous-titre hero */
+.hero p{font-size:1.12rem;max-width:650px;color:#f4f8f5}
+
+/**
+ * Label petit (eyebrow)
+ * Utilisé pour: catégories, sections
+ * - TEXT-TRANSFORM uppercase: emphase sans crier
+ * - Letter-spacing: meilleure lisibilité petite taille
+ * - Weight 800: visible et impactant
+ */
+.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}
+
+/** Variante eyebrow dans hero (couleur or) */
+.hero .eyebrow{color:#f5bd267}
+
+/* ===== SECTIONS & LAYOUT ===== */
+/**
+ * Padding sections (vertical rhythm)
+ * 90px = espacement générique entre sections
+ * Crée une hiérarchie visuelle claire
+ */
+.section{padding:90px 0}
+
+/** Titre section avec responsive typography */
+.section-title{font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:12px}
+
+/** Texte descriptif sous titre */
+.section-lead{color:var(--muted);max-width:650px}
+
+/* ===== CARDS (Produits, Catégories, Producteurs, Infos) ===== */
+/**
+ * Composant card générique réutilisable
+ * - White background: bon contraste sur fond gris
+ * - Border-radius: coins arrondis cohérents (--radius: 20px)
+ * - Shadow: profondeur visuelle
+ * - Overflow hidden: images avec coins arrondis
+ * - Height 100%: fill de la grille (flex layout)
+ * 
+ * Classes concernées:
+ * - .category-card: catégories produits
+ * - .product-card: produits catalogue
+ * - .producer-card: producteurs
+ * - .info-card: infos pratiques (sidebar)
+ * - .faq-wrap: wrapper FAQ
+ * - .contact-card: formulaire contact
+ */
+.category-card,.product-card,.producer-card,.info-card,.faq-wrap,.contact-card{background:#fff;border:0;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;height:100%}
+
+/**
+ * Images des cartes
+ * - Hauteur fixe: évite distorsion grille
+ * - object-fit:cover: remplit le conteneur sans déformation
+ * 
+ * Dimensioning:
+ * - Catégories & Produits: 230px (ratio optimal)
+ * - Producteurs: 290px (plus grand, moins de texte)
+ */
+.category-card img{height:230px;object-fit:cover}
+.product-card img{height:230px;object-fit:cover}
+
+/** Spacing contenu produit */
+.product-card .card-body{padding:22px}
+
+/**
+ * Animations card
+ * - Transition: 250ms sur toutes les propriétés
+ * - Hover: translateY(-6px) pour "floating" effect
+ * - Crée une interaction douce et moderne
+ */
+.product-card{transition:.25s}
+.product-card:hover,.producer-card:hover,.category-card:hover{transform:translateY(-6px)}
+
+/**
+ * Prix produit
+ * - Couleur verte: emphase commerciale
+ * - Font-size 1.2rem: visible et lisible
+ * - Weight 800: prominence
+ */
+.price{font-weight:800;color:var(--green);font-size:1.2rem}
+
+/**
+ * Badge pour catégorie/tag produit
+ * - Background soft vert: bon contraste
+ * - Couleur texte: vert foncé
+ * - Padding généreux: espacement interne
+ * - Border-radius 50px: "pill" style moderne
+ */
+.badge-soft{background:var(--green-soft);color:var(--green-dark);padding:.45rem .7rem;border-radius:50px;font-weight:700}
+
+/** Producteur card spécifique */
+.producer-card img{height:290px;object-fit:cover}
+.producer-meta{padding:22px}
+
+/**
+ * Icon box (utilisé dans sections infos)
+ * - Taille fixe 54x54px
+ * - Background soft vert + icône verte
+ * - Flex: centrage parfait
+ * - Rayon 15px: coins légèrement arrondis
+ */
+.icon-box{width:54px;height:54px;border-radius:15px;background:var(--green-soft);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+
+/* ===== STATS & CTA SECTIONS ===== */
+/**
+ * Section statistiques
+ * - Fond vert foncé pour contraste
+ * - Texte blanc: lisibilité maximale
+ * - Utilisé pour afficher: 100% locaux, 4 catégories, etc.
+ */
+.stats{background:var(--green-dark);color:#fff}
+
+/** Grands chiffres stats */
+.stat-number{font-size:2.3rem;font-weight:800}
+
+/**
+ * Section Call-To-Action (gradient vert)
+ * - Gradient linéaire 120deg: dynamique
+ * - Couleur blanche: lisibilité sur gradient
+ * - Border-radius 28px: très arrondie (distinctive)
+ * - Padding généreux: respire bien
+ * 
+ * Convention: Utiliser pour "Passer commande", "Nous contacter"
+ */
+.cta{background:linear-gradient(120deg,var(--green-dark),var(--green));color:#fff;border-radius:28px;padding:55px}
+
+/** Sections pages internes (accueil + title) */
+.page-hero{padding:155px 0 85px;background:linear-gradient(135deg,#eaf7ef,#fff)}
+.page-hero p{color:var(--muted);max-width:700px}
+
+/* ===== FORMULAIRES ===== */
+/**
+ * Inputs et selects
+ * - Border-radius 12px: cohérent avec design
+ * - Padding généreux: touchable sur mobile
+ * - Border subtile: séparation légère
+ * 
+ * Focus state:
+ * - Border-color: vert (indication visuelle)
+ * - Box-shadow: halo subtil vert (accessibilité)
+ */
+.form-control,.form-select{border-radius:12px;padding:.8rem 1rem;border:1px solid #dce5df}
+.form-control:focus,.form-select:focus{border-color:var(--green);box-shadow:0 0 0 .2rem rgba(22,131,74,.12)}
+
+/** Labels formulaires */
+.form-label{font-weight:700}
+
+/* ===== FOOTER ===== */
+/**
+ * Footer dark (contraste texte blanc)
+ * - Background #102018: noir bleuté (moins dur que noir pur)
+ * - Texte gris: lisible sans être éblouissant
+ * - Padding: espacement généreux (dignité)
+ */
+.footer{background:#102018;color:#b9c8bf;padding:65px 0 25px}
+
+/** Headings et brand blanc dans footer */
+.footer h5,.footer .navbar-brand{color:#fff!important}
+
+/** Links et hover */
+.footer a{color:#b9c8bf}.footer a:hover{color:#fff}
+
+/**
+ * Icônes sociales (cercles)
+ * - Size: 40x40px
+ * - Border: subtile (~#496154)
+ * - Border-radius 50%: cercle parfait
+ * - Flex: centrage icône
+ */
+.social{width:40px;height:40px;border:1px solid #496154;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-right:6px}
+
+/* ===== NOTIFICATIONS & UTILITAIRES ===== */
+/**
+ * Toast container (notifications)
+ * - z-index 2000: au-dessus de tout
+ * - Utilisé pour: "Produit ajouté au panier"
+ */
+.toast-container{z-index:2000}
+
+/**
+ * Badge panier (counter)
+ * - Position absolute: coin top-right du bouton
+ * - Petit font-size: discret mais lisible
+ */
+.cart-badge{position:absolute;top:3px;right:-3px;font-size:.62rem}
+
+/** Boîte recherche */
+.search-box{max-width:420px}
+
+/**
+ * État vide (pas de résultats)
+ * - Display none par défaut (voir JS)
+ * - Affiche texte centré + texte gris
+ */
+.empty-state{display:none;text-align:center;padding:45px;color:var(--muted)}
+
+/** Classe utilitaire: masquage carte */
+.product-card.hidden{display:none}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/**
+ * Breakpoint: max-width 767px (mobile et petites tablettes)
+ * 
+ * Stratégie: Réduire les hauteurs et paddings sur petits écrans
+ *           pour meilleur UX mobile
+ * 
+ * Amélioration possible: Ajouter breakpoints tablet (768-1024px)
+ *                        pour meilleure progressivité
+ */
+@media(max-width:767px){
+  /**
+   * Hero section mobile
+   * - Réduit de 680px à 610px
+   * - Gagne encore de la place sur petits écrans
+   * - Carousel item aussi réduit
+   */
+  .hero, .hero .carousel, .hero .carousel-item{height:610px}
+  
+  /** Sections: padding réduit (65px au lieu de 90px) */
+  .section{padding:65px 0}
+  
+  /** Titre héro: taille fixe sur mobile (2.55rem) */
+  .hero h1{font-size:2.55rem}
+  
+  /** CTA: padding réduit pour meilleur responsive */
+  .cta{padding:35px 25px}
+}
